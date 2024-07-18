@@ -14,6 +14,12 @@ const cardImages = [
     'eggplant.png', 'eggplant.png',
     'strawberry.png', 'strawberry.png',
     'tomato.png', 'tomato.png',
+    'papaya.png','papaya.png',
+    'kiwi.png', 'kiwi.png',
+    'grape.png','grape.png',
+    'cucumber.png','cucumber.png',
+    'watermelon.png','watermelon.png',
+    'green-beans.png','green-beans.png',
 ];
 
 function createCards() {
@@ -45,7 +51,6 @@ function flipCard() {
     if (lockBoard) return;
     if (this === firstCard) return;
   
-    this.classList.add('flip');
     this.querySelector('img').style.display = 'block';
     this.querySelector('span').style.display = 'none';
   
@@ -68,14 +73,12 @@ function checkForMatch() {
     }
 }
 
-// Função para desabilitar cartas correspondentes
 function disableCards() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
   resetBoard();
 }
 
-// Função para desvirar cartas que não correspondem
 function unflipCards() {
   lockBoard = true;
   setTimeout(() => {
@@ -83,27 +86,21 @@ function unflipCards() {
     secondCard.querySelector('img').style.display = 'none';
     firstCard.querySelector('span').style.display = 'block';
     secondCard.querySelector('span').style.display = 'block';
-    firstCard.classList.remove('flip');
-    secondCard.classList.remove('flip');
     resetBoard();
   }, 1000);
 }
 
-// Função para reiniciar o tabuleiro
 function resetBoard() {
   [firstCard, secondCard] = [null, null];
   lockBoard = false;
 }
 
-// Função para reiniciar o jogo
+resetButton.addEventListener('click', resetGame);
+
 function resetGame() {
   createCards();
   resetBoard();
 }
 
-// Adiciona evento ao botão de reiniciar
-resetButton.addEventListener('click', resetGame);
-
-// Inicializa o jogo
 createCards();
 

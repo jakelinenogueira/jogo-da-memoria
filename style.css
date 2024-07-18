@@ -36,20 +36,22 @@ div#board {
     width: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: center; 
     flex-wrap: wrap;
     gap: 15px;
     margin-bottom: 80px;
-
 }
 
 .card {
-    width: 23%;
+    width: calc(20% - 15px); 
     height: 150px;
     background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    flex-grow: 1; 
+    max-width: 150px; 
 }
 
 .card span {
@@ -59,7 +61,7 @@ div#board {
 }
 
 .card img {
-    width: 40%;
+    width: 70%;
     height: auto;
 }
 
